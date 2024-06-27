@@ -4,21 +4,23 @@ resources:
 pool:
   vmImage: ubuntu-20.04
 trigger:
-- main
+- master
 variables:
   TargetFramework: 'net6.0'
   BuildConfiguration: 'Release'
   DockerImageName: 'int-poc-app-compliance/clouddemo'
 steps:
-- task: DotNetCoreCLI@2
-  displayName: Publish
+steps:
+- task: Maven@3
   inputs:
-    projects: 'applications/clouddemo/netcore/CloudDemo.MvcCore.sln'
-    publishWebProjects: false
-    command: publish
-    arguments: '--configuration $(BuildConfiguration) --framework=$(TargetFramework)'
-    zipAfterPublish: false
-    modifyOutputPath: false
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
 - task: CmdLine@1
   displayName: 'Lock image version in deployment.yaml'
   inputs:
