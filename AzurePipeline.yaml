@@ -8,7 +8,7 @@ trigger:
 variables:
   TargetFramework: 'net6.0'
   BuildConfiguration: 'Release'
-  DockerImageName: 'int-poc-app-compliance/clouddemo'
+  DockerImageName: 'us-central1-docker.pkg.dev/int-poc-app-compliance/clouddemo'
 steps:
 - task: Maven@3
   inputs:
