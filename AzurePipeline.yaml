@@ -20,11 +20,6 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-# - task: CmdLine@1
-#   displayName: 'Lock image version in deployment.yaml'
-#   inputs:
-#     filename: /bin/bash
-#     arguments: '-c "awk ''{gsub(\"CLOUDDEMO_IMAGE\", \"gcr.io/$(DockerImageName):$(Build.BuildId)\", $0); print}'' applications/clouddemo/netcore/deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact'
   inputs:
