@@ -10,7 +10,6 @@ variables:
   BuildConfiguration: 'Release'
   DockerImageName: 'int-poc-app-compliance/clouddemo'
 steps:
-steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
