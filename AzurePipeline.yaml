@@ -37,6 +37,6 @@ steps:
 - task: Docker@2
   displayName: 'Build and push image'
   inputs:
-    Dockerfile: 'applications/clouddemo/netcore/Dockerfile'
+    Dockerfile: '**/AzureDockerfile'
     command: buildAndPush
     repository: '$(DockerImageName)'
