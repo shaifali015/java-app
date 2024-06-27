@@ -8,7 +8,7 @@ trigger:
 variables:
   TargetFramework: 'net6.0'
   BuildConfiguration: 'Release' #PROJECT-ID/REPO/IMAGE
-  DockerImageName: 'int-poc-app-compliance/clouddemo'
+  DockerImageName: 'int-poc-app-compliance/egpt-rlef/clouddemo'
 steps:
 - task: Maven@3
   inputs:
