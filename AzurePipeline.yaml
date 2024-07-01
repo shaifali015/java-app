@@ -40,3 +40,11 @@ steps:
     Dockerfile: '**/AzureDockerfile'
     command: buildAndPush
     repository: '$(DockerImageName)'
+
+- task: KubernetesManifest@1
+  inputs:
+    action: 'deploy'
+    connectionType: 'kubernetesServiceConnection'
+    kubernetesServiceConnection: 'Kubernetes'
+    namespace: 'default'
+    manifests: 'manifest/drop/deployement.yaml'
