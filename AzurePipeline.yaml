@@ -24,7 +24,7 @@ steps:
   displayName: 'Lock image version in deployment.yaml'
   inputs:
     filename: /bin/bash
-    arguments: '-c "awk ''{gsub(\"CLOUDDEMO_IMAGE\", \"https://us-central1-docker.pkg.dev/$(DockerImageName):$(Build.BuildId)\", $0); print}'' applications/clouddemo/netcore/deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
+    arguments: '-c "awk ''{gsub(\"CLOUDDEMO_IMAGE\", \"https://us-central1-docker.pkg.dev/$(DockerImageName):$(Build.BuildId)\", $0); print}'' java-app/deployment.yaml > $(build.artifactstagingdirectory)/deployment.yaml"'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact'
   inputs:
