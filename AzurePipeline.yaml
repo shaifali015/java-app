@@ -47,4 +47,4 @@ steps:
     connectionType: 'kubernetesServiceConnection'
     kubernetesServiceConnection: 'Kubernetes'
     namespace: 'default'
-    manifests: 'manifest/drop/deployement.yaml'
+    manifests: 'deployement.yaml'
