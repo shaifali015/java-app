@@ -10,17 +10,19 @@ spec:
     name: http
   selector:
     app: clouddemo-netcore
-  type: NodePort
+
 
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  cert-manager.io/issuer: letsencrypt-production
-  nginx.ingress.kubernetes.io/cors-allow-methods: GET, PUT, POST, DELETE, PATCH, OPTIONS
-  nginx.ingress.kubernetes.io/proxy-connect-timeout: "1200"
-  nginx.ingress.kubernetes.io/proxy-read-timeout: "1200"
-  nginx.ingress.kubernetes.io/proxy-send-timeout: "1200"
+  annotations:
+    cert-manager.io/issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/cors-allow-methods: GET, PUT, POST, DELETE, PATCH, OPTIONS
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "1200"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "1200"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "1200"
+  name: clouddemo-netcore
 spec:
   defaultBackend:
     service:
